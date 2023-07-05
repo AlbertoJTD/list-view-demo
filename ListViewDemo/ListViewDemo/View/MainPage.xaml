@@ -30,7 +30,7 @@
                     <ViewCell.View>
                         <Grid>
                             <Grid.ColumnDefinitions/>
-                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding FirstName}" />
                             <Label Text="{Binding Phone}" Grid.Column="1" />
                             <Button Text="Call" Grid.Column="2" />
                         </Grid>
