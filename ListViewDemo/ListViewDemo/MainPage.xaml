@@ -4,8 +4,9 @@
              x:Class="ListViewDemo.MainPage">
 
     <ListView ItemsSource="{Binding .}"
-              Header="My friends"
-              Footer="&#169;Copyright">
+              Header="My Friends"
+              Footer="&#169;Copyright"
+              RowHeight="70">
         <ListView.HeaderTemplate>
             <DataTemplate>
                 <StackLayout Orientation="Horizontal"
