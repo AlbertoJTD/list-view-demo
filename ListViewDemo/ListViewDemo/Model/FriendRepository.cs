@@ -1,6 +1,7 @@
 ﻿using Foundation.ObjectHydrator;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ListViewDemo.Model
@@ -19,6 +20,15 @@ namespace ListViewDemo.Model
         public IList<Friend> GetAllFriends()
         {
             return Friends;
+        }
+
+        public IList<Friend> GetAllByFirstLetter(string firstLetter)
+        {
+            var query = from q in Friends
+						where q.FirstName.StartsWith(firstLetter)
+                        select q;
+
+            return query.ToList();
         }
     }
 }
