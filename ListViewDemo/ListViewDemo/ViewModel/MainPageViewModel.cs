@@ -9,6 +9,7 @@ namespace ListViewDemo.ViewModel
     public class MainPageViewModel
     {
         public List<Friend> Friends { get; set; }
+
         public MainPageViewModel()
         {
             FriendRepository friendRepository = new FriendRepository();
