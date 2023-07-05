@@ -7,6 +7,7 @@
               Header="My Friends"
               Footer="&#169;Copyright"
               RowHeight="70">
+
         <ListView.HeaderTemplate>
             <DataTemplate>
                 <StackLayout Orientation="Horizontal"
@@ -20,6 +21,21 @@
                 </StackLayout>
             </DataTemplate>
         </ListView.HeaderTemplate>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid>
+                            <Grid.ColumnDefinitions/>
+                            <Label Text="{Binding FirstName}" />
+                            <Label Text="{Binding Phone}" Grid.Column="1" />
+                            <Button Text="Call" Grid.Column="2" />
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
 
         <ListView.FooterTemplate>
             <DataTemplate>
