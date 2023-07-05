@@ -13,6 +13,27 @@ namespace ListViewDemo
 		public MainPage()
 		{
 			InitializeComponent();
+			BindingContext = new[]
+			{
+				new
+				{
+					FirstName = "John",
+					Phone = "(123)45678",
+					Email = "john1@hotmail.com",
+				},
+				new
+				{
+					FirstName = "Gavi",
+					Phone = "(123)45678",
+					Email = "Gavi@hotmail.com",
+				},
+				new
+				{
+					FirstName = "Scarlett",
+					Phone = "(123)45678",
+					Email = "scarlett@hotmail.com",
+				},
+			}.ToList();
 		}
 	}
 }
