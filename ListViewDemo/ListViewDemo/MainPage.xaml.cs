@@ -17,7 +17,7 @@ namespace ListViewDemo
 			{
 				new
 				{
-					FirstName = "John",
+					FirstName = "JohnJohnJohnJohnJohnJohnJohnJohnJohnJohn",
 					Phone = "(123)45678",
 					Email = "john1@hotmail.com",
 				},

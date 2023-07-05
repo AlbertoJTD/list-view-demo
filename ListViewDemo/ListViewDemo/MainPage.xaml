@@ -6,7 +6,9 @@
     <ListView ItemsSource="{Binding .}"
               Header="My Friends"
               Footer="&#169;Copyright"
-              RowHeight="70">
+              SeparatorVisibility="Default"
+              SeparatorColor="DarkCyan"
+              HasUnevenRows="True">
 
         <ListView.HeaderTemplate>
             <DataTemplate>
