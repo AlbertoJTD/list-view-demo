@@ -1,6 +1,8 @@
 ﻿using Foundation.ObjectHydrator;
+using ListViewDemo.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -29,6 +31,17 @@ namespace ListViewDemo.Model
                         select q;
 
             return query.ToList();
+        }
+
+        public ObservableCollection<Grouping<string, Friend>> GetAllGrouped()
+        {
+            var sortedData = from f in Friends
+                             orderby f.FirstName
+                             group f by f.FirstName[0].ToString()
+                             into data
+                             select new Grouping<string, Friend>(data.Key, data);
+
+            return new ObservableCollection<Grouping<string, Friend>>(sortedData);
         }
     }
 }
