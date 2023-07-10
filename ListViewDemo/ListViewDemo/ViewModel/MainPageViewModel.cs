@@ -16,6 +16,7 @@ namespace ListViewDemo.ViewModel
         public ObservableCollection<Grouping<string, Friend>> Friends { get; set; }
         public Command AddFriendCommand { get; set; }
         private INavigation Navigation { get; set; }
+        public Command ItemTappedCommand { get; set; }
 
         public MainPageViewModel(INavigation navigation)
         {
@@ -24,6 +25,7 @@ namespace ListViewDemo.ViewModel
             Navigation = navigation;
 
             AddFriendCommand = new Command(async () => await NavigateToFriendView());
+            ItemTappedCommand = new Command(async () => await NavigateToFriendView());
         }
 
 		public async Task NavigateToFriendView()
