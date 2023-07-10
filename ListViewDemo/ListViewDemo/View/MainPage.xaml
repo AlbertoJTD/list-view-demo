@@ -5,7 +5,7 @@
              x:Class="ListViewDemo.MainPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+"
+        <ToolbarItem Text="+ New Friend"
                      Command="{Binding AddFriendCommand}" />
     </ContentPage.ToolbarItems>
 
@@ -17,6 +17,7 @@
               HasUnevenRows="True"
               IsGroupingEnabled="True"
               GroupShortNameBinding="{Binding Key}"
+              SelectedItem="{Binding CurrentFriend}"
               local:ItemTappedAttached.Command="{Binding ItemTappedCommand}">
 
         <ListView.GroupHeaderTemplate>
@@ -37,10 +38,7 @@
             <DataTemplate>
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
-                    <Label Text="My"
-                           TextColor="Green" />
-
-                    <Label Text="Friends"
+                    <Label Text="My Friends"
                            TextColor="Blue"/>
 
                 </StackLayout>
@@ -53,8 +51,12 @@
                     <ViewCell.View>
                         <Grid>
                             <Grid.ColumnDefinitions/>
-                            <Label Text="{Binding FirstName}" />
-                            <Label Text="{Binding Phone}" Grid.Column="1" />
+                            <Label Text="{Binding FirstName}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+                            <Label Text="{Binding Phone}" Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
                             <Button Text="Call" Grid.Column="2" />
                         </Grid>
                     </ViewCell.View>

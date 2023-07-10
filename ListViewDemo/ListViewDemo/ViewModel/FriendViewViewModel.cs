@@ -9,21 +9,21 @@ namespace ListViewDemo.ViewModel
 {
 	public class FriendViewViewModel
 	{
-        public Command AddFriendCommand { get; set; }
+        public Command SaveFriendCommand { get; set; }
         public Friend NewFriend { get; set; }
         private INavigation Navigation { get; set; }
 
         public FriendViewViewModel(INavigation navigation)
         {
             NewFriend = new Friend();
-            AddFriendCommand = new Command(async () => await SaveFriend());
+            SaveFriendCommand = new Command(async () => await SaveFriend());
 			Navigation = navigation;
 		}
 
 		public FriendViewViewModel(INavigation navigation, Friend friend)
         {
 			NewFriend = friend;
-			AddFriendCommand = new Command(async () => await SaveFriend());
+			SaveFriendCommand = new Command(async () => await SaveFriend());
 			Navigation = navigation;
 		}
 
