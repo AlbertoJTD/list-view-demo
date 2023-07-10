@@ -33,6 +33,7 @@ namespace ListViewDemo.Behaviors
 			var control = bindable as ListView;
 			if (control != null)
 			{
+				control.ItemTapped -= OnItemTapped;
 				control.ItemTapped += OnItemTapped;
 			}
 		}
@@ -40,7 +41,7 @@ namespace ListViewDemo.Behaviors
 		private static void OnItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			var control = sender as ListView;
-			var command  = GetItemTapped(control);
+			var command = GetItemTapped(control);
 
 			if (command != null && command.CanExecute(e.Item))
 			{
