@@ -1,4 +1,5 @@
-﻿using ListViewDemo.ViewModel;
+﻿using ListViewDemo.Model;
+using ListViewDemo.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,17 @@ namespace ListViewDemo.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FriendView : ContentPage
 	{
-		public FriendView()
+		public FriendView(Friend friend = null)
 		{
 			InitializeComponent();
-		}
+			if (friend == null)
+			{
+				this.BindingContext = new FriendViewViewModel(Navigation);
+			}
+            else
+            {
+				this.BindingContext = new FriendViewViewModel(Navigation, friend);
+			}
+        }
 	}
 }

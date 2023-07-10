@@ -14,7 +14,13 @@ namespace ListViewDemo
 		public MainPage()
 		{
 			InitializeComponent();
-			this.BindingContext = new MainPageViewModel();
+			//this.BindingContext = new MainPageViewModel();
+		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			this.BindingContext = new MainPageViewModel(Navigation);
 		}
 	}
 }
