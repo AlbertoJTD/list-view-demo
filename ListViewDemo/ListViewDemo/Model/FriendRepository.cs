@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ListViewDemo.Model
 {
@@ -15,8 +16,10 @@ namespace ListViewDemo.Model
         public FriendRepository()
         {
             // Populate a list based on Friend model attributes
-            Hydrator<Friend> _friendHydrator = new Hydrator<Friend>();
-            Friends = _friendHydrator.GetList(50);
+            //Hydrator<Friend> _friendHydrator = new Hydrator<Friend>();
+            //Friends = _friendHydrator.GetList(50);
+
+            Task.Run(async () => Friends = await App.Database.GetItemsAsync()).Wait();
         }
 
         public IList<Friend> GetAllFriends()
@@ -35,11 +38,16 @@ namespace ListViewDemo.Model
 
         public ObservableCollection<Grouping<string, Friend>> GetAllGrouped()
         {
-            var sortedData = from f in Friends
-                             orderby f.FirstName
-                             group f by f.FirstName[0].ToString()
-                             into data
-                             select new Grouping<string, Friend>(data.Key, data);
+            IEnumerable<Grouping<string, Friend>> sortedData = new Grouping<string, Friend>[0];
+
+            if (sortedData != null)
+            {
+                sortedData = from f in Friends
+                                 orderby f.FirstName
+                                 group f by f.FirstName[0].ToString()
+                                 into data
+                                 select new Grouping<string, Friend>(data.Key, data);
+            }
 
             return new ObservableCollection<Grouping<string, Friend>>(sortedData);
         }
